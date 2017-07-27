@@ -4,12 +4,11 @@ defmodule A2billingRestApi.CardControllerTest do
   alias A2billingRestApi.Card
   alias A2billingRestApi.Repo
 
-  @valid_attrs %{discountdecimal: "some content", email_notification: "some content", invoiceday: 42,
+  @valid_attrs %{discount: "10.0", email_notification: "some content", invoiceday: 42,
                  city: "some content", expirationdate: %{day: 17, hour: 14, min: 0, month: 4, sec: 0, year: 2010},
                  useralias: "some content", currency: "some content", credit_notification: 42, redial: "some content",
                  activated: "f", tariff: 42, vat: "120.5", fax: "some content", iax_buddy: 42,
                  email: "some content", simultaccess: 42, company_website: "some content",
-                 lock_date: %{day: 17, hour: 14, min: 0, month: 4, sec: 0, year: 2010},
                  voicemail_permitted: 42, status: 42, loginkey: "some content", traffic_target: "some content",
                  enableexpire: 42, company_name: "some content", lastname: "some content", restriction: 42, serial: 42,
                  zipcode: "some content", creditlimit: 42, country: "RUS", phone: "1232131",
@@ -126,12 +125,10 @@ defmodule A2billingRestApi.CardControllerTest do
     assert data["attributes"]["vat_rn"] == card.vat_rn
     assert data["attributes"]["traffic"] == card.traffic
     assert data["attributes"]["traffic_target"] == card.traffic_target
-    assert data["attributes"]["discountdecimal"] == card.discountdecimal
     assert data["attributes"]["restriction"] == card.restriction
     assert data["attributes"]["serial"] == card.serial
     assert data["attributes"]["block"] == card.block
     assert data["attributes"]["lock_pin"] == card.lock_pin
-    assert data["attributes"]["lock_date"] == card.lock_date
     assert data["attributes"]["max_concurrent"] == card.max_concurrent
   end
 

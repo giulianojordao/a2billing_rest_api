@@ -59,7 +59,7 @@ defmodule A2billingRestApi.Repo.Migrations.CreateCard do
       add :vat_rn, :string
       add :traffic, :integer
       add :traffic_target, :string
-      add :discountdecimal, :string
+      add :discount, :decimal
       add :restriction, :integer
       add :serial, :integer
       add :block, :integer

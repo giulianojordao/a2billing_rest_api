@@ -2,9 +2,9 @@ defmodule A2billingRestApi.Card do
   use A2billingRestApi.Web, :model
 
   schema "cc_card" do
-    field :creationdate, Ecto.Date
-    field :firstusedate, Ecto.Date
-    field :expirationdate, Ecto.Date
+    field :creationdate, :naive_datetime
+    field :firstusedate, :naive_datetime
+    field :expirationdate, :naive_datetime
     field :enableexpire, :integer
     field :expiredays, :integer
     field :username, :string
@@ -27,7 +27,7 @@ defmodule A2billingRestApi.Card do
     field :inuse, :integer
     field :simultaccess, :integer
     field :currency, :string
-    field :lastuse, Ecto.Date
+    field :lastuse, :naive_datetime
     field :nbused, :integer
     field :typepaid, :integer
     field :creditlimit, :integer
@@ -40,7 +40,7 @@ defmodule A2billingRestApi.Card do
     field :nbservice, :integer
     field :num_trials_done, :integer
     field :vat, :float
-    field :servicelastrun, Ecto.Date
+    field :servicelastrun, :naive_datetime
     field :initialbalance, :decimal
     field :invoiceday, :integer
     field :autorefill, :integer
@@ -49,7 +49,7 @@ defmodule A2billingRestApi.Card do
     field :tag, :string
     field :voicemail_permitted, :integer
     field :voicemail_activated, :integer
-    field :last_notification, Ecto.Date
+    field :last_notification, :naive_datetime
     field :email_notification, :string
     field :notify_email, :integer
     field :credit_notification, :integer
@@ -58,12 +58,12 @@ defmodule A2billingRestApi.Card do
     field :vat_rn, :string
     field :traffic, :integer
     field :traffic_target, :string
-    field :discountdecimal, :string
+    field :discount, :decimal
     field :restriction, :integer
     field :serial, :integer
     field :block, :integer
     field :lock_pin, :string
-    field :lock_date, Ecto.Date
+    field :lock_date, :naive_datetime
     field :max_concurrent, :integer
 
     belongs_to :didgroup, A2billingRestApi.Didgroup,  foreign_key: :id_didgroup
@@ -84,7 +84,7 @@ defmodule A2billingRestApi.Card do
                       :num_trials_done, :vat, :servicelastrun, :initialbalance, :invoiceday, :autorefill, :loginkey,
                       :mac_addr, :tag, :voicemail_permitted, :voicemail_activated, :last_notification,
                       :email_notification, :notify_email, :credit_notification, :company_name, :company_website,
-                      :vat_rn, :traffic, :traffic_target, :discountdecimal, :restriction, :serial, :block, :lock_pin,
+                      :vat_rn, :traffic, :traffic_target, :discount, :restriction, :serial, :block, :lock_pin,
                       :lock_date, :max_concurrent])
 
     |> validate_required([:username, :useralias, :uipass, :lastname, :firstname, :address, :city, :state, :country,
