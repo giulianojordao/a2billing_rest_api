@@ -8,6 +8,7 @@ defmodule A2billingRestApi.Router do
   scope "/api", A2billingRestApi do
     pipe_through :api
 
+    resources "/cc_card", CardController, except: [:new, :edit]
     resources "/card_group", CardGroupController, except: [:new, :edit]
     resources "/card_seria", CardSeriaController, except: [:new, :edit]
     resources "/didgroups", DidgroupController, except: [:new, :edit]

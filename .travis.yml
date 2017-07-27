@@ -1,0 +1,4 @@
+language: elixir
+services: mysql
+elixir:
+  - 1.4.4
