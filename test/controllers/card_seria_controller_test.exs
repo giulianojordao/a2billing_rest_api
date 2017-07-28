@@ -10,10 +10,16 @@ defmodule A2billingRestApi.CardSeriaControllerTest do
   @invalid_attrs %{name: nil}
 
   setup do
+    user = insert :user
+
     conn = build_conn()
       |> put_req_header("accept", "application/vnd.api+json")
       |> put_req_header("content-type", "application/vnd.api+json")
-
+      |> Guardian.Plug.api_sign_in(
+        user,
+        :token,
+        perms: %{default: [:read, :write]}
+      )
     {:ok, conn: conn}
   end
 

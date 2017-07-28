@@ -32,3 +32,13 @@ config :phoenix, :format_encoders,
 config :mime, :types, %{
   "application/vnd.api+json" => ["json-api"]
 }
+
+config :guardian, Guardian,
+  allowed_algos: ["HS512"], # optional
+  verify_module: Guardian.JWT,  # optional
+  issuer: "A2billingRestApi",
+  ttl: { 3000, :days },
+  allowed_drift: 2000,
+  verify_issuer: true, # optional
+  secret_key: "Ztkj/PV6lDqRLhEOy/oMkRk+TdnmilLkYwIlN8SOKlDg9wdhFpGdyJEU7mtqFryK",
+  serializer: A2billingRestApi.GuardianSerializer
