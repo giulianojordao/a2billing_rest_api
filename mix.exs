@@ -38,9 +38,10 @@ defmodule A2billingRestApi.Mixfile do
      {:cowboy, "~> 1.0"},
      {:plug, "~>1.3.5", override: true},
 
-     {:argon2_elixir, "~> 1.2"},
+     #{:argon2_elixir, "~> 1.2"},
      {:bureaucrat, "~> 0.1.4"},
-     {:comeonin, "~> 4.0-rc"},
+    # {:comeonin, "~> 4.0-rc"},
+     {:exrm, "~> 1.0.3"},
      {:ex_machina, "~> 2.0", only: :test},
      {:faker, "~> 0.8", only: :test},
      {:guardian, "~> 0.14"},
