@@ -20,13 +20,13 @@ defmodule A2billingRestApi.DidgroupControllerTest do
   end
 
   test "lists all entries on index", %{conn: conn} do
-    conn = get conn, didgroup_path(conn, :index)
+    conn = get(conn, didgroup_path(conn, :index)) |> doc
     assert json_response(conn, 200)["data"] == []
   end
 
   test "shows chosen resource", %{conn: conn} do
     didgroup = Repo.insert! %Didgroup{didgroupname: "some name"}
-    conn = get conn, didgroup_path(conn, :show, didgroup)
+    conn = get(conn, didgroup_path(conn, :show, didgroup)) |> doc
     data = json_response(conn, 200)["data"]
     assert data["id"] == "#{didgroup.id}"
     assert data["type"] == "didgroup"
@@ -35,40 +35,40 @@ defmodule A2billingRestApi.DidgroupControllerTest do
 
   test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
     assert_error_sent 404, fn ->
-      get conn, didgroup_path(conn, :show, -1)
+      get(conn, didgroup_path(conn, :show, -1)) |> doc
     end
   end
 
   test "creates and renders resource when data is valid", %{conn: conn} do
-    conn = post conn, didgroup_path(conn, :create), %{
+    conn = post(conn, didgroup_path(conn, :create), %{
       "meta" => %{},
       "data" => %{
         "type" => "didgroup",
         "attributes" => @valid_attrs,
         "relationships" => relationships
       }
-    }
+    }) |> doc
 
     assert json_response(conn, 201)["data"]["id"]
     assert Repo.get_by(Didgroup, @valid_attrs)
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
-    conn = post conn, didgroup_path(conn, :create), %{
+    conn = post(conn, didgroup_path(conn, :create), %{
       "meta" => %{},
       "data" => %{
         "type" => "didgroup",
         "attributes" => @invalid_attrs,
         "relationships" => relationships
       }
-    }
+    }) |> doc
 
     assert json_response(conn, 422)["errors"] != %{}
   end
 
   test "updates and renders chosen resource when data is valid", %{conn: conn} do
     didgroup = Repo.insert! %Didgroup{didgroupname: "some name"}
-    conn = put conn, didgroup_path(conn, :update, didgroup), %{
+    conn = put(conn, didgroup_path(conn, :update, didgroup), %{
       "meta" => %{},
       "data" => %{
         "type" => "didgroup",
@@ -76,7 +76,7 @@ defmodule A2billingRestApi.DidgroupControllerTest do
         "attributes" => @valid_attrs,
         "relationships" => relationships
       }
-    }
+    }) |> doc
 
     assert json_response(conn, 200)["data"]["id"]
     assert Repo.get_by(Didgroup, @valid_attrs)
@@ -84,7 +84,7 @@ defmodule A2billingRestApi.DidgroupControllerTest do
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
     didgroup = Repo.insert! %Didgroup{didgroupname: "some name"}
-    conn = put conn, didgroup_path(conn, :update, didgroup), %{
+    conn = put(conn, didgroup_path(conn, :update, didgroup), %{
       "meta" => %{},
       "data" => %{
         "type" => "didgroup",
@@ -92,14 +92,14 @@ defmodule A2billingRestApi.DidgroupControllerTest do
         "attributes" => @invalid_attrs,
         "relationships" => relationships
       }
-    }
+    }) |> doc
 
     assert json_response(conn, 422)["errors"] != %{}
   end
 
   test "deletes chosen resource", %{conn: conn} do
     didgroup = Repo.insert! %Didgroup{didgroupname: "some name"}
-    conn = delete conn, didgroup_path(conn, :delete, didgroup)
+    conn = delete(conn, didgroup_path(conn, :delete, didgroup)) |> doc
     assert response(conn, 204)
     refute Repo.get(Didgroup, didgroup.id)
   end

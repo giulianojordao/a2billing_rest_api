@@ -22,13 +22,13 @@ defmodule A2billingRestApi.CardSeriaControllerTest do
   end
 
   test "lists all entries on index", %{conn: conn} do
-    conn = get conn, card_seria_path(conn, :index)
+    conn = get(conn, card_seria_path(conn, :index)) |> doc
     assert json_response(conn, 200)["data"] == []
   end
 
   test "shows chosen resource", %{conn: conn} do
     card_seria = insert :card_seria
-    conn = get conn, card_seria_path(conn, :show, card_seria)
+    conn = get(conn, card_seria_path(conn, :show, card_seria)) |> doc
     data = json_response(conn, 200)["data"]
     assert data["id"] == "#{card_seria.id}"
     assert data["type"] == "card-seria"
@@ -39,40 +39,40 @@ defmodule A2billingRestApi.CardSeriaControllerTest do
 
   test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
     assert_error_sent 404, fn ->
-      get conn, card_seria_path(conn, :show, -1)
+      get(conn, card_seria_path(conn, :show, -1)) |> doc
     end
   end
 
   test "creates and renders resource when data is valid", %{conn: conn} do
-    conn = post conn, card_seria_path(conn, :create), %{
+    conn = post(conn, card_seria_path(conn, :create), %{
       "meta" => %{},
       "data" => %{
         "type" => "card_seria",
         "attributes" => @valid_attrs,
         "relationships" => relationships
       }
-    }
+    }) |> doc
 
     assert json_response(conn, 201)["data"]["id"]
     assert Repo.get_by(CardSeria, @valid_attrs)
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
-    conn = post conn, card_seria_path(conn, :create), %{
+    conn = post(conn, card_seria_path(conn, :create), %{
       "meta" => %{},
       "data" => %{
         "type" => "card_seria",
         "attributes" => @invalid_attrs,
         "relationships" => relationships
       }
-    }
+    }) |> doc
 
     assert json_response(conn, 422)["errors"] != %{}
   end
 
   test "updates and renders chosen resource when data is valid", %{conn: conn} do
     card_seria = insert :card_seria
-    conn = put conn, card_seria_path(conn, :update, card_seria), %{
+    conn = put(conn, card_seria_path(conn, :update, card_seria), %{
       "meta" => %{},
       "data" => %{
         "type" => "card_seria",
@@ -80,7 +80,7 @@ defmodule A2billingRestApi.CardSeriaControllerTest do
         "attributes" => @valid_attrs,
         "relationships" => relationships
       }
-    }
+    }) |> doc
 
     assert json_response(conn, 200)["data"]["id"]
     assert Repo.get_by(CardSeria, @valid_attrs)
@@ -88,7 +88,7 @@ defmodule A2billingRestApi.CardSeriaControllerTest do
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
     card_seria = insert :card_seria
-    conn = put conn, card_seria_path(conn, :update, card_seria), %{
+    conn = put(conn, card_seria_path(conn, :update, card_seria), %{
       "meta" => %{},
       "data" => %{
         "type" => "card_seria",
@@ -96,14 +96,14 @@ defmodule A2billingRestApi.CardSeriaControllerTest do
         "attributes" => @invalid_attrs,
         "relationships" => relationships
       }
-    }
+    }) |> doc
 
     assert json_response(conn, 422)["errors"] != %{}
   end
 
   test "deletes chosen resource", %{conn: conn} do
     card_seria = insert :card_seria
-    conn = delete conn, card_seria_path(conn, :delete, card_seria)
+    conn = delete(conn, card_seria_path(conn, :delete, card_seria)) |> doc
     assert response(conn, 204)
     refute Repo.get(CardSeria, card_seria.id)
   end

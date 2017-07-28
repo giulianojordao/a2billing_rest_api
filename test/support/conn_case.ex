@@ -21,6 +21,8 @@ defmodule A2billingRestApi.ConnCase do
       use Phoenix.ConnTest
 
       alias A2billingRestApi.Repo
+      import Bureaucrat.Helpers
+      
       import Ecto
       import Ecto.Changeset
       import Ecto.Query

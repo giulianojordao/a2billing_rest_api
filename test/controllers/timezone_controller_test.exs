@@ -20,13 +20,13 @@ defmodule A2billingRestApi.TimezoneControllerTest do
   end
 
   test "lists all entries on index", %{conn: conn} do
-    conn = get conn, timezone_path(conn, :index)
+    conn = conn |> get(timezone_path(conn, :index)) |> doc()
     assert json_response(conn, 200)["data"] == []
   end
 
   test "shows chosen resource", %{conn: conn} do
     timezone = Repo.insert! %Timezone{}
-    conn = get conn, timezone_path(conn, :show, timezone)
+    conn = conn |> get(timezone_path(conn, :show, timezone)) |> doc()
     data = json_response(conn, 200)["data"]
     assert data["id"] == "#{timezone.id}"
     assert data["type"] == "timezone"
@@ -36,40 +36,40 @@ defmodule A2billingRestApi.TimezoneControllerTest do
 
   test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
     assert_error_sent 404, fn ->
-      get conn, timezone_path(conn, :show, -1)
+      conn |> get(timezone_path(conn, :show, -1)) |> doc
     end
   end
 
   test "creates and renders resource when data is valid", %{conn: conn} do
-    conn = post conn, timezone_path(conn, :create), %{
+    conn = conn |> post(timezone_path(conn, :create), %{
       "meta" => %{},
       "data" => %{
         "type" => "timezone",
         "attributes" => @valid_attrs,
         "relationships" => relationships
       }
-    }
+    }) |> doc()
 
     assert json_response(conn, 201)["data"]["id"]
     assert Repo.get_by(Timezone, @valid_attrs)
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
-    conn = post conn, timezone_path(conn, :create), %{
+    conn = post(conn, timezone_path(conn, :create), %{
       "meta" => %{},
       "data" => %{
         "type" => "timezone",
         "attributes" => @invalid_attrs,
         "relationships" => relationships
       }
-    }
+    }) |> doc
 
     assert json_response(conn, 422)["errors"] != %{}
   end
 
   test "updates and renders chosen resource when data is valid", %{conn: conn} do
     timezone = Repo.insert! %Timezone{}
-    conn = put conn, timezone_path(conn, :update, timezone), %{
+    conn = put(conn, timezone_path(conn, :update, timezone), %{
       "meta" => %{},
       "data" => %{
         "type" => "timezone",
@@ -77,7 +77,7 @@ defmodule A2billingRestApi.TimezoneControllerTest do
         "attributes" => @valid_attrs,
         "relationships" => relationships
       }
-    }
+    }) |> doc
 
     assert json_response(conn, 200)["data"]["id"]
     assert Repo.get_by(Timezone, @valid_attrs)
@@ -85,7 +85,7 @@ defmodule A2billingRestApi.TimezoneControllerTest do
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
     timezone = Repo.insert! %Timezone{}
-    conn = put conn, timezone_path(conn, :update, timezone), %{
+    conn = put(conn, timezone_path(conn, :update, timezone), %{
       "meta" => %{},
       "data" => %{
         "type" => "timezone",
@@ -93,14 +93,14 @@ defmodule A2billingRestApi.TimezoneControllerTest do
         "attributes" => @invalid_attrs,
         "relationships" => relationships
       }
-    }
+    })|> doc
 
     assert json_response(conn, 422)["errors"] != %{}
   end
 
   test "deletes chosen resource", %{conn: conn} do
     timezone = Repo.insert! %Timezone{}
-    conn = delete conn, timezone_path(conn, :delete, timezone)
+    conn = delete(conn, timezone_path(conn, :delete, timezone)) |> doc
     assert response(conn, 204)
     refute Repo.get(Timezone, timezone.id)
   end
