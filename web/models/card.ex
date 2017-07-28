@@ -61,10 +61,6 @@ defmodule A2billingRestApi.Card do
     field :discount, :decimal
     field :restriction, :integer
     field :serial, :integer
-    field :block, :integer
-    field :lock_pin, :string
-    field :lock_date, :naive_datetime
-    field :max_concurrent, :integer
 
     belongs_to :didgroup, A2billingRestApi.Didgroup,  foreign_key: :id_didgroup
     belongs_to :timezone, A2billingRestApi.Timezone,  foreign_key: :id_timezone
@@ -84,8 +80,7 @@ defmodule A2billingRestApi.Card do
                       :num_trials_done, :vat, :servicelastrun, :initialbalance, :invoiceday, :autorefill, :loginkey,
                       :mac_addr, :tag, :voicemail_permitted, :voicemail_activated, :last_notification,
                       :email_notification, :notify_email, :credit_notification, :company_name, :company_website,
-                      :vat_rn, :traffic, :traffic_target, :discount, :restriction, :serial, :block, :lock_pin,
-                      :lock_date, :max_concurrent])
+                      :vat_rn, :traffic, :traffic_target, :discount, :restriction, :serial])
 
     |> validate_required([:username, :useralias, :uipass, :lastname, :firstname, :address, :city, :state, :country,
                          :zipcode, :phone, :email, :fax, :redial, :loginkey, :tag, :email_notification, :company_name,

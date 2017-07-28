@@ -4,7 +4,7 @@ defmodule A2billingRestApi.TimezoneControllerTest do
   alias A2billingRestApi.Timezone
   alias A2billingRestApi.Repo
 
-  @valid_attrs %{gmtoffset: 42, gmttime: "some content", gmtzone: "some content"}
+  @valid_attrs %{gmtoffset: 1, gmttime: "some content", gmtzone: "some content"}
   @invalid_attrs %{}
 
   setup do
@@ -14,7 +14,7 @@ defmodule A2billingRestApi.TimezoneControllerTest do
 
     {:ok, conn: conn}
   end
-  
+
   defp relationships do
     %{}
   end
@@ -32,7 +32,6 @@ defmodule A2billingRestApi.TimezoneControllerTest do
     assert data["type"] == "timezone"
     assert data["attributes"]["gmtzone"] == timezone.gmtzone
     assert data["attributes"]["gmttime"] == timezone.gmttime
-    assert data["attributes"]["gmtoffset"] == timezone.gmtoffset
   end
 
   test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do

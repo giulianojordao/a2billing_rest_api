@@ -1,11 +1,13 @@
 defmodule A2billingRestApi.CardGroupControllerTest do
   use A2billingRestApi.ConnCase
 
+  import A2billingRestApi.Factory
+
   alias A2billingRestApi.CardGroup
   alias A2billingRestApi.Repo
 
-  @valid_attrs %{description: "some content", name: "some content", provisioning: "some content", users_perms: 42}
-  @invalid_attrs %{}
+  @valid_attrs %{description: "some content", name: "some content", users_perms: 42}
+  @invalid_attrs %{name: nil}
 
   setup do
     conn = build_conn()
@@ -25,15 +27,13 @@ defmodule A2billingRestApi.CardGroupControllerTest do
   end
 
   test "shows chosen resource", %{conn: conn} do
-    card_group = Repo.insert! %CardGroup{}
+    card_group = insert(:card_group)
     conn = get conn, card_group_path(conn, :show, card_group)
     data = json_response(conn, 200)["data"]
     assert data["id"] == "#{card_group.id}"
     assert data["type"] == "card-group"
     assert data["attributes"]["name"] == card_group.name
     assert data["attributes"]["description"] == card_group.description
-    assert data["attributes"]["users_perms"] == card_group.users_perms
-    assert data["attributes"]["provisioning"] == card_group.provisioning
   end
 
   test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do
@@ -70,7 +70,7 @@ defmodule A2billingRestApi.CardGroupControllerTest do
   end
 
   test "updates and renders chosen resource when data is valid", %{conn: conn} do
-    card_group = Repo.insert! %CardGroup{}
+    card_group = insert :card_group
     conn = put conn, card_group_path(conn, :update, card_group), %{
       "meta" => %{},
       "data" => %{
@@ -86,7 +86,7 @@ defmodule A2billingRestApi.CardGroupControllerTest do
   end
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
-    card_group = Repo.insert! %CardGroup{}
+    card_group = insert :card_group
     conn = put conn, card_group_path(conn, :update, card_group), %{
       "meta" => %{},
       "data" => %{
@@ -101,7 +101,7 @@ defmodule A2billingRestApi.CardGroupControllerTest do
   end
 
   test "deletes chosen resource", %{conn: conn} do
-    card_group = Repo.insert! %CardGroup{}
+    card_group = insert :card_group
     conn = delete conn, card_group_path(conn, :delete, card_group)
     assert response(conn, 204)
     refute Repo.get(CardGroup, card_group.id)

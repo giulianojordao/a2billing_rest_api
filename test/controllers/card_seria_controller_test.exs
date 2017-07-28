@@ -1,11 +1,13 @@
 defmodule A2billingRestApi.CardSeriaControllerTest do
   use A2billingRestApi.ConnCase
 
+  import A2billingRestApi.Factory
+
   alias A2billingRestApi.CardSeria
   alias A2billingRestApi.Repo
 
   @valid_attrs %{description: "some content", name: "some content", value: 42}
-  @invalid_attrs %{}
+  @invalid_attrs %{name: nil}
 
   setup do
     conn = build_conn()
@@ -25,7 +27,7 @@ defmodule A2billingRestApi.CardSeriaControllerTest do
   end
 
   test "shows chosen resource", %{conn: conn} do
-    card_seria = Repo.insert! %CardSeria{}
+    card_seria = insert :card_seria
     conn = get conn, card_seria_path(conn, :show, card_seria)
     data = json_response(conn, 200)["data"]
     assert data["id"] == "#{card_seria.id}"
@@ -69,7 +71,7 @@ defmodule A2billingRestApi.CardSeriaControllerTest do
   end
 
   test "updates and renders chosen resource when data is valid", %{conn: conn} do
-    card_seria = Repo.insert! %CardSeria{}
+    card_seria = insert :card_seria
     conn = put conn, card_seria_path(conn, :update, card_seria), %{
       "meta" => %{},
       "data" => %{
@@ -85,7 +87,7 @@ defmodule A2billingRestApi.CardSeriaControllerTest do
   end
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
-    card_seria = Repo.insert! %CardSeria{}
+    card_seria = insert :card_seria
     conn = put conn, card_seria_path(conn, :update, card_seria), %{
       "meta" => %{},
       "data" => %{
@@ -100,7 +102,7 @@ defmodule A2billingRestApi.CardSeriaControllerTest do
   end
 
   test "deletes chosen resource", %{conn: conn} do
-    card_seria = Repo.insert! %CardSeria{}
+    card_seria = insert :card_seria
     conn = delete conn, card_seria_path(conn, :delete, card_seria)
     assert response(conn, 204)
     refute Repo.get(CardSeria, card_seria.id)

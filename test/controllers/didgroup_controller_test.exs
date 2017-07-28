@@ -5,7 +5,7 @@ defmodule A2billingRestApi.DidgroupControllerTest do
   alias A2billingRestApi.Repo
 
   @valid_attrs %{didgroupname: "some content"}
-  @invalid_attrs %{}
+  @invalid_attrs %{didgroupname: nil}
 
   setup do
     conn = build_conn()
@@ -25,7 +25,7 @@ defmodule A2billingRestApi.DidgroupControllerTest do
   end
 
   test "shows chosen resource", %{conn: conn} do
-    didgroup = Repo.insert! %Didgroup{}
+    didgroup = Repo.insert! %Didgroup{didgroupname: "some name"}
     conn = get conn, didgroup_path(conn, :show, didgroup)
     data = json_response(conn, 200)["data"]
     assert data["id"] == "#{didgroup.id}"
@@ -67,7 +67,7 @@ defmodule A2billingRestApi.DidgroupControllerTest do
   end
 
   test "updates and renders chosen resource when data is valid", %{conn: conn} do
-    didgroup = Repo.insert! %Didgroup{}
+    didgroup = Repo.insert! %Didgroup{didgroupname: "some name"}
     conn = put conn, didgroup_path(conn, :update, didgroup), %{
       "meta" => %{},
       "data" => %{
@@ -83,7 +83,7 @@ defmodule A2billingRestApi.DidgroupControllerTest do
   end
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
-    didgroup = Repo.insert! %Didgroup{}
+    didgroup = Repo.insert! %Didgroup{didgroupname: "some name"}
     conn = put conn, didgroup_path(conn, :update, didgroup), %{
       "meta" => %{},
       "data" => %{
@@ -98,7 +98,7 @@ defmodule A2billingRestApi.DidgroupControllerTest do
   end
 
   test "deletes chosen resource", %{conn: conn} do
-    didgroup = Repo.insert! %Didgroup{}
+    didgroup = Repo.insert! %Didgroup{didgroupname: "some name"}
     conn = delete conn, didgroup_path(conn, :delete, didgroup)
     assert response(conn, 204)
     refute Repo.get(Didgroup, didgroup.id)

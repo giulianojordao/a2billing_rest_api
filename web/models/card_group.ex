@@ -5,7 +5,6 @@ defmodule A2billingRestApi.CardGroup do
     field :name, :string
     field :description, :string
     field :users_perms, :integer
-    field :provisioning, :string
   end
 
   @doc """
@@ -13,7 +12,7 @@ defmodule A2billingRestApi.CardGroup do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:name, :description, :users_perms, :provisioning])
+    |> cast(params, [:name, :description, :users_perms])
     |> validate_required([:name])
   end
 end
