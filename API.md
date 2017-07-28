@@ -30,6 +30,8 @@
   * [index](#a2billingrestapitimezonecontrollerindex)
   * [show](#a2billingrestapitimezonecontrollershow)
   * [update](#a2billingrestapitimezonecontrollerupdate)
+* [A2billingRestApi.TokenController](#a2billingrestapitokencontroller)
+  * [create](#a2billingrestapitokencontrollercreate)
 
 ## A2billingRestApi.CardController
 ### A2billingRestApi.CardController.create
@@ -48,7 +50,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 0ji9lsaae0c2o1lv8m9gsflm6v2lk7tn
+x-request-id: a4qhufsm1bj49i4ov6ski9bhl2cj74pe
 ```
 * __Response body:__
 ```json
@@ -216,8 +218,8 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: i8pnaoj1aoe79a4qrcg59t46gph6oa0u
-location: /api/cards/5
+x-request-id: catkn05r5t2628rc95trgcmtc74mo0jr
+location: /api/cards/3
 ```
 * __Response body:__
 ```json
@@ -227,7 +229,7 @@ location: /api/cards/5
   },
   "data": {
     "type": "card",
-    "id": "5",
+    "id": "3",
     "attributes": {
       "initialbalance": "120.5",
       "voicemail-permitted": 42,
@@ -311,7 +313,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: gu70426motvdgf1im94or3lsfhms93sm
+x-request-id: d15c2k9hglqfd96l507610k3p765bqsk
 ```
 * __Response body:__
 ```json
@@ -334,7 +336,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: a8m1j67taf31k9h4fvdl0orgcag9ev2s
+x-request-id: 6jpundfs4tq04ge0sj7dldjte09lbjt8
 ```
 * __Response body:__
 ```json
@@ -350,7 +352,7 @@ x-request-id: a8m1j67taf31k9h4fvdl0orgcag9ev2s
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/cards/2
+* __Path:__ /api/cards/5
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -362,7 +364,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 2ebc7gaq6skhohsi9f2vtseul0jncvof
+x-request-id: s146pfv4rhrh66cqs39p0b3d3b5g15cm
 ```
 * __Response body:__
 ```json
@@ -372,7 +374,7 @@ x-request-id: 2ebc7gaq6skhohsi9f2vtseul0jncvof
   },
   "data": {
     "type": "card",
-    "id": "2",
+    "id": "5",
     "attributes": {
       "initialbalance": "0.00000",
       "voicemail-permitted": 0,
@@ -380,31 +382,31 @@ x-request-id: 2ebc7gaq6skhohsi9f2vtseul0jncvof
       "tariff": 0,
       "enableexpire": 0,
       "block": null,
-      "company-name": "Schamberger and Sons",
+      "company-name": "Olson LLC",
       "lock-date": null,
       "voipcall": 0,
       "traffic": null,
       "max-concurrent": null,
       "traffic-target": "",
       "last-notification": null,
-      "company-website": "https://sporer.info",
+      "company-website": "http://hane.net",
       "credit": "0.00000",
       "language": "en",
-      "lastname": "Waters",
-      "email": "abigail1965@connelly.name",
+      "lastname": "Rohan",
+      "email": "bethel_reichel@robel.name",
       "credit-notification": -1,
       "redial": "",
       "lastuse": "0000-00-00T00:00:00.000000",
       "voicemail-activated": 0,
       "invoiceday": 1,
       "firstusedate": "0000-00-00T00:00:00.000000",
-      "city": "Maeganbury",
-      "useralias": "Giant Nina Theroux Wolf",
+      "city": "West Reymundoton",
+      "useralias": "Boom Boom",
       "email-notification": "",
       "uipass": "password",
       "simultaccess": 0,
       "expiredays": 0,
-      "state": "Utah",
+      "state": "Virginia",
       "mac-addr": "00-00-00-00-00-00",
       "tag": "",
       "status": 1,
@@ -414,10 +416,10 @@ x-request-id: 2ebc7gaq6skhohsi9f2vtseul0jncvof
       "loginkey": "",
       "servicelastrun": "0000-00-00T00:00:00.000000",
       "restriction": 0,
-      "zipcode": "93696-4699",
-      "address": "8 Jacobson Drive Apt. 441",
+      "zipcode": "21463",
+      "address": "47 Anderson Unions Apt. 835",
       "num-trials-done": 0,
-      "firstname": "Bryce",
+      "firstname": "Vicenta",
       "lock-pin": null,
       "notify-email": 0,
       "currency": "USD",
@@ -431,7 +433,7 @@ x-request-id: 2ebc7gaq6skhohsi9f2vtseul0jncvof
       "expirationdate": "0000-00-00T00:00:00.000000",
       "vat-rn": null,
       "phone": "123456789",
-      "username": "Dragonair",
+      "username": "Muk",
       "creditlimit": 0,
       "autorefill": 0,
       "activated": "f",
@@ -457,7 +459,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: gq6fpf1f9m6tlpqpv70b70ghegg0fmnk
+x-request-id: uoabnd0d4emk2fs632vitu845od550ea
 ```
 * __Response body:__
 ```json
@@ -515,7 +517,7 @@ x-request-id: gq6fpf1f9m6tlpqpv70b70ghegg0fmnk
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/cards/3
+* __Path:__ /api/cards/2
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -527,7 +529,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: qgsflc606c4m9rltcks17bsv3171vhgc
+x-request-id: 0ulfl3j3r70pglb9gphpj198n7cb0hvs
 ```
 * __Response body:__
 ```json
@@ -537,7 +539,7 @@ x-request-id: qgsflc606c4m9rltcks17bsv3171vhgc
   },
   "data": {
     "type": "card",
-    "id": "3",
+    "id": "2",
     "attributes": {
       "initialbalance": "120.5",
       "voicemail-permitted": 42,
@@ -623,7 +625,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: kdvvpfjq0qa1rpf758q0hndnsvl40d1r
+x-request-id: m0rd79j0ilulmjskghedtevu6ksbfns4
 ```
 * __Response body:__
 ```json
@@ -658,8 +660,8 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: gd968veih67ihua307ji7bopemkllegc
-location: /api/card_groups/6
+x-request-id: 37hd9fu329f80hceci0rskd2keh4jd06
+location: /api/card_groups/8
 ```
 * __Response body:__
 ```json
@@ -669,7 +671,7 @@ location: /api/card_groups/6
   },
   "data": {
     "type": "card-group",
-    "id": "6",
+    "id": "8",
     "attributes": {
       "users-perms": 42,
       "provisioning": null,
@@ -684,7 +686,7 @@ location: /api/card_groups/6
 #### deletes chosen resource
 ##### Request
 * __Method:__ DELETE
-* __Path:__ /api/card_groups/5
+* __Path:__ /api/card_groups/9
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -695,7 +697,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: e4sq14b1i9v6gkpi9fh5sd2jbvba7gut
+x-request-id: ofhls23lqc2suajl0pcapagad5tgtm3s
 ```
 * __Response body:__
 ```json
@@ -718,7 +720,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 0d39od9b57ges0t9pqnpiscj9eoipd4e
+x-request-id: golu45g3icc71ioad4gsp2744s0g12ab
 ```
 * __Response body:__
 ```json
@@ -734,7 +736,7 @@ x-request-id: 0d39od9b57ges0t9pqnpiscj9eoipd4e
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/card_groups/3
+* __Path:__ /api/card_groups/10
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -746,7 +748,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: buuu054n897s17apnr96d8p1a8cp3jmr
+x-request-id: 95io6sidnthh700n241ha49nhbksfojk
 ```
 * __Response body:__
 ```json
@@ -756,12 +758,12 @@ x-request-id: buuu054n897s17apnr96d8p1a8cp3jmr
   },
   "data": {
     "type": "card-group",
-    "id": "3",
+    "id": "10",
     "attributes": {
       "users-perms": 0,
       "provisioning": null,
-      "name": "Koffing",
-      "description": "I will speak daggers to her, but use none."
+      "name": "Poliwhirl",
+      "description": "Doubt that the sun doth move, doubt truth to be a liar, but never doubt I love."
     }
   }
 }
@@ -771,7 +773,7 @@ x-request-id: buuu054n897s17apnr96d8p1a8cp3jmr
 #### does not update chosen resource and renders errors when data is invalid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/card_groups/2
+* __Path:__ /api/card_groups/6
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -783,7 +785,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: et33i14148jmtpr0al68c2svfv069re9
+x-request-id: thci2mqui7c4mn3cjphknpd9j5a5mgsk
 ```
 * __Response body:__
 ```json
@@ -806,7 +808,7 @@ x-request-id: et33i14148jmtpr0al68c2svfv069re9
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/card_groups/4
+* __Path:__ /api/card_groups/7
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -818,7 +820,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: e1ebevdpblmpmvqk5audbsamt42606ne
+x-request-id: vf7c5nh4i4u0vmkcih8sc45f6p7ciemv
 ```
 * __Response body:__
 ```json
@@ -828,7 +830,7 @@ x-request-id: e1ebevdpblmpmvqk5audbsamt42606ne
   },
   "data": {
     "type": "card-group",
-    "id": "4",
+    "id": "7",
     "attributes": {
       "users-perms": 42,
       "provisioning": null,
@@ -856,7 +858,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 3gvc058nkb1a91fk8g675kdasj378oij
+x-request-id: 7bfde881gch78qc7vkddavg1h752hlaj
 ```
 * __Response body:__
 ```json
@@ -898,8 +900,8 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 4gkn7rm18n1l1jm7f05a5b75lrmmf7vt
-location: /api/card_series/9
+x-request-id: p2h2sie5l3t2p19gp52n2unrqs7fk222
+location: /api/card_series/7
 ```
 * __Response body:__
 ```json
@@ -909,7 +911,7 @@ location: /api/card_series/9
   },
   "data": {
     "type": "card-seria",
-    "id": "9",
+    "id": "7",
     "attributes": {
       "value": 42,
       "name": "some content",
@@ -934,7 +936,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 8e8qlu1tg5d2c1099fpsrf2ucloc6fj4
+x-request-id: dkkdi117dsdkq0ei31qk0l8egscda899
 ```
 * __Response body:__
 ```json
@@ -957,7 +959,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: erc1pjpg78k7fl6ruvv9vk0lfnjp6025
+x-request-id: tf381cnbjkupfqg88gpoiilp0heudohb
 ```
 * __Response body:__
 ```json
@@ -973,7 +975,7 @@ x-request-id: erc1pjpg78k7fl6ruvv9vk0lfnjp6025
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/card_series/6
+* __Path:__ /api/card_series/9
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -985,7 +987,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: mta6c25hulrknkn5gr86jiv93jg6579i
+x-request-id: phqp5hdvbpgjfkobkvm1hnu3tdkj3kah
 ```
 * __Response body:__
 ```json
@@ -995,10 +997,10 @@ x-request-id: mta6c25hulrknkn5gr86jiv93jg6579i
   },
   "data": {
     "type": "card-seria",
-    "id": "6",
+    "id": "9",
     "attributes": {
       "value": 123,
-      "name": "Poliwhirl",
+      "name": "Machamp",
       "description": null
     }
   }
@@ -1021,7 +1023,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: nnj5gt4juvicmgnef9s572p9335uecvv
+x-request-id: tikgfckldv4ue7q98eu6i6eivnq9636a
 ```
 * __Response body:__
 ```json
@@ -1044,7 +1046,7 @@ x-request-id: nnj5gt4juvicmgnef9s572p9335uecvv
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/card_series/7
+* __Path:__ /api/card_series/6
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1056,7 +1058,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 16ikl3uqismrqao1bpsn4qkdahnfiv71
+x-request-id: 04ek2l018oontcf9s1bbov7ofnnrm5g4
 ```
 * __Response body:__
 ```json
@@ -1066,7 +1068,7 @@ x-request-id: 16ikl3uqismrqao1bpsn4qkdahnfiv71
   },
   "data": {
     "type": "card-seria",
-    "id": "7",
+    "id": "6",
     "attributes": {
       "value": 42,
       "name": "some content",
@@ -1093,7 +1095,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: c22jgqrk92ls36s8lbvt27a2pdkdcrlp
+x-request-id: vq5suqrrr9s4gl3sdl77bbcqfkcc14o7
 ```
 * __Response body:__
 ```json
@@ -1128,8 +1130,8 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: i8t5e0sulg5dbj72n47kvmaepqdl9r1h
-location: /api/didgroups/9
+x-request-id: rf3rtvbqt6tugoqkk46iudq624avbodd
+location: /api/didgroups/7
 ```
 * __Response body:__
 ```json
@@ -1139,7 +1141,7 @@ location: /api/didgroups/9
   },
   "data": {
     "type": "didgroup",
-    "id": "9",
+    "id": "7",
     "attributes": {
       "didgroupname": "some content",
       "creationdate": null
@@ -1163,7 +1165,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: k044dnfnem1f0rcnjf9vb33hb70fl10u
+x-request-id: uu6oh6m9s9uvo8pg9n6o314otevmfva4
 ```
 * __Response body:__
 ```json
@@ -1186,7 +1188,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: ae0ck56a7ct3np764hsqkpii5bgc3mkm
+x-request-id: dg813orc8rqhmpmsht6ct7a9cre1smq0
 ```
 * __Response body:__
 ```json
@@ -1202,7 +1204,7 @@ x-request-id: ae0ck56a7ct3np764hsqkpii5bgc3mkm
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/didgroups/6
+* __Path:__ /api/didgroups/9
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1214,7 +1216,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: acbdv80vaohpjg9k5h280b7ns8md3fvn
+x-request-id: mi56ip589c2upbhumkp9uj6d78vds728
 ```
 * __Response body:__
 ```json
@@ -1224,10 +1226,10 @@ x-request-id: acbdv80vaohpjg9k5h280b7ns8md3fvn
   },
   "data": {
     "type": "didgroup",
-    "id": "6",
+    "id": "9",
     "attributes": {
       "didgroupname": "some name",
-      "creationdate": "2017-07-28T12:32:23.000000"
+      "creationdate": "2017-07-28T16:14:41.000000"
     }
   }
 }
@@ -1249,7 +1251,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: jn26lrsj7gsoudkg7amcjcn1lt4t65hd
+x-request-id: rc67jnt4jdsujf2r2q4p25ak5rdmcq40
 ```
 * __Response body:__
 ```json
@@ -1272,7 +1274,7 @@ x-request-id: jn26lrsj7gsoudkg7amcjcn1lt4t65hd
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/didgroups/7
+* __Path:__ /api/didgroups/6
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1284,7 +1286,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 5n2lra53ejn6tf0j20tliqkg6v4mt55n
+x-request-id: 533davj52u93ubb7qci4fmd0rchc14k8
 ```
 * __Response body:__
 ```json
@@ -1294,10 +1296,10 @@ x-request-id: 5n2lra53ejn6tf0j20tliqkg6v4mt55n
   },
   "data": {
     "type": "didgroup",
-    "id": "7",
+    "id": "6",
     "attributes": {
       "didgroupname": "some content",
-      "creationdate": "2017-07-28T12:32:23.000000"
+      "creationdate": "2017-07-28T16:14:41.000000"
     }
   }
 }
@@ -1320,7 +1322,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: 8mrft7sa36gb8idsutvf8cdo77dqhe9n
+x-request-id: 0ft4ijvbpur7hkrls7n9r82rsieq8qrj
 ```
 * __Response body:__
 ```json
@@ -1369,8 +1371,8 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: ianakph8ujmfv45e6hnn6v77id569fq0
-location: /api/timezones/80
+x-request-id: qc0a6qlguneln190s8ngngle9mai49qo
+location: /api/timezones/78
 ```
 * __Response body:__
 ```json
@@ -1380,7 +1382,7 @@ location: /api/timezones/80
   },
   "data": {
     "type": "timezone",
-    "id": "80",
+    "id": "78",
     "attributes": {
       "updated-at": null,
       "inserted-at": null,
@@ -1407,7 +1409,7 @@ content-type: application/vnd.api+json
 * __Response headers:__
 ```
 cache-control: max-age=0, private, must-revalidate
-x-request-id: t56btva7akie2k1cjjmvul1cqv15u0f4
+x-request-id: t8ema5i7tsbdkol53uoqinn7esr0c42j
 ```
 * __Response body:__
 ```json
@@ -1430,7 +1432,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: qjloc3ji4tt4pgkurrniicietfpd67ds
+x-request-id: b7114htpasijshkhfh814s523u7g2a5u
 ```
 * __Response body:__
 ```json
@@ -1446,7 +1448,7 @@ x-request-id: qjloc3ji4tt4pgkurrniicietfpd67ds
 #### shows chosen resource
 ##### Request
 * __Method:__ GET
-* __Path:__ /api/timezones/77
+* __Path:__ /api/timezones/80
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1458,7 +1460,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: mmqeenimtm9n9a6p6ifv10t19ff6h9q0
+x-request-id: 8h4cms5jihk2mdfiesngtm4bhm41bt22
 ```
 * __Response body:__
 ```json
@@ -1468,7 +1470,7 @@ x-request-id: mmqeenimtm9n9a6p6ifv10t19ff6h9q0
   },
   "data": {
     "type": "timezone",
-    "id": "77",
+    "id": "80",
     "attributes": {
       "updated-at": null,
       "inserted-at": null,
@@ -1496,7 +1498,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: hdcqh1v25ljond4s4bf6psum2dsek8v0
+x-request-id: gjnhn2smeq2qpddv6b0posvarhauvmb0
 ```
 * __Response body:__
 ```json
@@ -1526,7 +1528,7 @@ x-request-id: hdcqh1v25ljond4s4bf6psum2dsek8v0
 #### updates and renders chosen resource when data is valid
 ##### Request
 * __Method:__ PUT
-* __Path:__ /api/timezones/78
+* __Path:__ /api/timezones/77
 * __Request headers:__
 ```
 accept: application/vnd.api+json
@@ -1538,7 +1540,7 @@ content-type: application/vnd.api+json
 ```
 content-type: application/vnd.api+json; charset=utf-8
 cache-control: max-age=0, private, must-revalidate
-x-request-id: fhbnfsjut1mhiuj63770d57eheoa5nq2
+x-request-id: cr2987sqmlqd5n86pdgldtjikfoamlbe
 ```
 * __Response body:__
 ```json
@@ -1548,7 +1550,7 @@ x-request-id: fhbnfsjut1mhiuj63770d57eheoa5nq2
   },
   "data": {
     "type": "timezone",
-    "id": "78",
+    "id": "77",
     "attributes": {
       "updated-at": null,
       "inserted-at": null,
@@ -1557,6 +1559,33 @@ x-request-id: fhbnfsjut1mhiuj63770d57eheoa5nq2
       "gmtoffset": 1
     }
   }
+}
+```
+
+## A2billingRestApi.TokenController
+### A2billingRestApi.TokenController.create
+#### creates JWT token for existing user with correct password
+##### Request
+* __Method:__ POST
+* __Path:__ /token
+* __Request headers:__
+```
+accept: application/vnd.api+json
+content-type: application/vnd.api+json
+```
+##### Response
+* __Status__: 200
+* __Response headers:__
+```
+content-type: application/json; charset=utf-8
+cache-control: max-age=0, private, must-revalidate
+x-request-id: h2hgmkvneo1nfesmbmr26n9iqae9ubqi
+authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJVc2VyOjkiLCJleHAiOjE3NjA0MzMyODEsImlhdCI6MTUwMTIzMzI4MSwiaXNzIjoiQTJiaWxsaW5nUmVzdEFwaSIsImp0aSI6ImVmNmQzZGY5LTRlNjAtNGMwMy05N2IxLThiMjhiMjU0NWIxZSIsInBlbSI6e30sInN1YiI6IlVzZXI6OSIsInR5cCI6ImFjY2VzcyJ9.zAR8doEJzk9SR5PXkpWxl8rJvhUK1Agj7xq3EyJHkOBJI7Ty4yxgmjpSgdqSHw852OSahkf-AeCy6YxBBQkd_g
+```
+* __Response body:__
+```json
+{
+  "jwt": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJVc2VyOjkiLCJleHAiOjE3NjA0MzMyODEsImlhdCI6MTUwMTIzMzI4MSwiaXNzIjoiQTJiaWxsaW5nUmVzdEFwaSIsImp0aSI6ImVmNmQzZGY5LTRlNjAtNGMwMy05N2IxLThiMjhiMjU0NWIxZSIsInBlbSI6e30sInN1YiI6IlVzZXI6OSIsInR5cCI6ImFjY2VzcyJ9.zAR8doEJzk9SR5PXkpWxl8rJvhUK1Agj7xq3EyJHkOBJI7Ty4yxgmjpSgdqSHw852OSahkf-AeCy6YxBBQkd_g"
 }
 ```
 
