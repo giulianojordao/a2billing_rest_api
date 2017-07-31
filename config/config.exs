@@ -42,3 +42,6 @@ config :guardian, Guardian,
   verify_issuer: true, # optional
   secret_key: "Ztkj/PV6lDqRLhEOy/oMkRk+TdnmilLkYwIlN8SOKlDg9wdhFpGdyJEU7mtqFryK",
   serializer: A2billingRestApi.GuardianSerializer
+
+
+  config :mix_docker, image: "maxkonin/a2billing_rest_api"

@@ -13,8 +13,9 @@ use Mix.Config
 # which you typically run after static files are built.
 config :a2billing_rest_api, A2billingRestApi.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: System.get_env("HOST"), port: System.get_env("PORT")],
-  cache_static_manifest: "priv/static/manifest.json"
+  url: [host: "${HOST}", port: "${PORT}"],
+  root: ".",
+  server: true
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -22,8 +23,8 @@ config :logger, level: :info
 # Configure your database
 config :a2billing_rest_api, A2billingRestApi.Repo,
   adapter: Ecto.Adapters.MySQL,
-  username: System.get_env("MYSQL_USER"),
-  password: System.get_env("MYSQL_PWD"),
-  database: System.get_env("MYSQL_DATABASE"),
-  hostname: System.get_env("MYSQL_HOST"),
+  username: "${MYSQL_USER}",
+  password: "${MYSQL_PWD}",
+  database: "${MYSQL_DATABASE}",
+  hostname: "${MYSQL_HOST}",
   pool_size: 10

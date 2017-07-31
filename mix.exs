@@ -41,11 +41,12 @@ defmodule A2billingRestApi.Mixfile do
      #{:argon2_elixir, "~> 1.2"},
      {:bureaucrat, "~> 0.1.4"},
     # {:comeonin, "~> 4.0-rc"},
-     {:exrm, "~> 1.0.3"},
+     {:distillery, "~> 1.2", runtime: false},
      {:ex_machina, "~> 2.0", only: :test},
      {:faker, "~> 0.8", only: :test},
      {:guardian, "~> 0.14"},
-     {:ja_serializer, "~> 0.12.0"}]
+     {:ja_serializer, "~> 0.12.0"},
+     {:mix_docker, "~> 0.5.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
