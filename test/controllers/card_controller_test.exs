@@ -6,21 +6,7 @@ defmodule A2billingRestApi.CardControllerTest do
   alias A2billingRestApi.Card
   alias A2billingRestApi.Repo
 
-  @valid_attrs %{discount: "10.0", email_notification: "some content", invoiceday: 42,
-                 city: "some content", expirationdate: %{day: 17, hour: 14, min: 0, month: 4, sec: 0, year: 2010},
-                 useralias: "some content", currency: "USD", credit_notification: 42, redial: "some content",
-                 activated: "f", tariff: 42, vat: "120.5", fax: "some content", iax_buddy: 42,
-                 email: "some content", simultaccess: 42, company_website: "some content",
-                 voicemail_permitted: 42, status: 42, loginkey: "some content", traffic_target: "some content",
-                 enableexpire: 42, company_name: "some content", lastname: "some content", restriction: 42, serial: 42,
-                 zipcode: "some content", creditlimit: 42, country: "RUS", phone: "1232131",
-                 firstusedate: %{day: 17, hour: 14, min: 0, month: 4, sec: 0, year: 2010}, runservice: 42,
-                 tag: "some content", initialbalance: "120.5", voicemail_activated: 42, inuse: 42,
-                 firstname: "some content", typepaid: 42, language: "en", mac_addr: "some content",
-                 state: "some content", username: "some content", sip_buddy: 42, address: "some content",
-                 credit: "120.5", num_trials_done: 42, uipass: "some content"}
-
-  @invalid_attrs %{}
+  @invalid_attrs %{username: nil}
 
   setup do
     user = insert :user
@@ -108,11 +94,12 @@ defmodule A2billingRestApi.CardControllerTest do
   end
 
   test "creates and renders resource when data is valid", %{conn: conn} do
+    valid_attrs = params_for(:card)
     conn = post(conn, card_path(conn, :create), %{
       "meta" => %{},
       "data" => %{
         "type" => "card",
-        "attributes" => @valid_attrs,
+        "attributes" => valid_attrs,
         "relationships" => relationships
       }
     }) |> doc
@@ -134,13 +121,14 @@ defmodule A2billingRestApi.CardControllerTest do
   end
 
   test "updates and renders chosen resource when data is valid", %{conn: conn} do
+    valid_attrs = params_for(:card)
     card = insert :card
     conn = put(conn, card_path(conn, :update, card), %{
       "meta" => %{},
       "data" => %{
         "type" => "card",
         "id" => card.id,
-        "attributes" => @valid_attrs,
+        "attributes" => valid_attrs,
         "relationships" => relationships
       }
     }) |> doc

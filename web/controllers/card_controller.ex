@@ -4,8 +4,6 @@ defmodule A2billingRestApi.CardController do
   alias A2billingRestApi.Card
   alias JaSerializer.Params
 
-  plug :scrub_params, "data" when action in [:create, :update]
-
   def index(conn, _params) do
     cc_card = Repo.all(Card)
     render(conn, "index.json-api", data: cc_card)

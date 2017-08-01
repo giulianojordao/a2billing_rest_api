@@ -15,11 +15,12 @@ defmodule A2billingRestApi.Router do
   scope "/api", A2billingRestApi do
     pipe_through :private_api
 
-    resources "/cards", CardController, except: [:new, :edit]
+    resources "/cards",       CardController, except: [:new, :edit]
     resources "/card_groups", CardGroupController, except: [:new, :edit]
     resources "/card_series", CardSeriaController, except: [:new, :edit]
-    resources "/didgroups", DidgroupController, except: [:new, :edit]
-    resources "/timezones", TimezoneController, except: [:new, :edit]
+    resources "/didgroups",   DidgroupController, except: [:new, :edit]
+    resources "/sip_buddies", SipBuddyController, except: [:new, :edit]
+    resources "/timezones",   TimezoneController, except: [:new, :edit]
   end
 
   scope "/", A2billingRestApi do

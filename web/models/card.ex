@@ -14,16 +14,16 @@ defmodule A2billingRestApi.Card do
     field :tariff, :integer
     field :activated, :string
     field :status, :integer
-    field :lastname, :string
-    field :firstname, :string
-    field :address, :string
-    field :city, :string
-    field :state, :string
-    field :country, :string
-    field :zipcode, :string
-    field :phone, :string
-    field :email, :string
-    field :fax, :string
+    field :lastname, :string, default: ""
+    field :firstname, :string, default: ""
+    field :address, :string, default: ""
+    field :city, :string, default: ""
+    field :state, :string, default: ""
+    field :country, :string, default: ""
+    field :zipcode, :string, default: ""
+    field :phone, :string, default: ""
+    field :email, :string, default: ""
+    field :fax, :string, default: ""
     field :inuse, :integer
     field :simultaccess, :integer
     field :currency, :string
@@ -44,20 +44,20 @@ defmodule A2billingRestApi.Card do
     field :initialbalance, :decimal
     field :invoiceday, :integer
     field :autorefill, :integer
-    field :loginkey, :string
+    field :loginkey, :string, default: ""
     field :mac_addr, :string
     field :tag, :string
     field :voicemail_permitted, :integer
     field :voicemail_activated, :integer
     field :last_notification, :naive_datetime
-    field :email_notification, :string
+    field :email_notification, :string, default: ""
     field :notify_email, :integer
     field :credit_notification, :integer
-    field :company_name, :string
-    field :company_website, :string
+    field :company_name, :string, default: ""
+    field :company_website, :string, default: ""
     field :vat_rn, :string
     field :traffic, :integer
-    field :traffic_target, :string
+    field :traffic_target, :string, default: ""
     field :discount, :decimal
     field :restriction, :integer
     field :serial, :integer
@@ -66,6 +66,8 @@ defmodule A2billingRestApi.Card do
     belongs_to :timezone, A2billingRestApi.Timezone,  foreign_key: :id_timezone
     belongs_to :group,    A2billingRestApi.CardGroup, foreign_key: :id_group
     belongs_to :seria,    A2billingRestApi.CardSeria, foreign_key: :id_seria
+
+    has_one :sip_buddy_acc, A2billingRestApi.SipBuddy, foreign_key: :id_cc_card
   end
 
   @doc """
@@ -73,17 +75,15 @@ defmodule A2billingRestApi.Card do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [ :enableexpire, :expiredays, :username, :useralias, :uipass,
+    |> cast(params, [ :enableexpire, :expiredays, :username, :useralias, :uipass, :id_didgroup, :id_timezone, :id_group,
                       :credit, :tariff, :activated, :status, :lastname, :firstname, :address, :city, :state, :country,
                       :zipcode, :phone, :email, :fax, :inuse, :simultaccess, :currency, :lastuse, :nbused, :typepaid,
                       :creditlimit, :voipcall, :sip_buddy, :iax_buddy, :language, :redial, :runservice, :nbservice,
                       :num_trials_done, :vat, :servicelastrun, :initialbalance, :invoiceday, :autorefill, :loginkey,
-                      :mac_addr, :tag, :voicemail_permitted, :voicemail_activated, :last_notification,
+                      :mac_addr, :tag, :voicemail_permitted, :voicemail_activated, :last_notification, :id_seria,
                       :email_notification, :notify_email, :credit_notification, :company_name, :company_website,
                       :vat_rn, :traffic, :traffic_target, :discount, :restriction, :serial])
 
-    |> validate_required([:username, :useralias, :uipass, :lastname, :firstname, :address, :city, :state, :country,
-                         :zipcode, :phone, :email, :fax, :redial, :loginkey, :tag, :email_notification, :company_name,
-                         :company_website, :traffic_target])
+    |> validate_required([:username, :useralias, :uipass, :redial, :tag])
   end
 end

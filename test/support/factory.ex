@@ -5,5 +5,6 @@ defmodule A2billingRestApi.Factory do
   use A2billingRestApi.CardGroupFactory
   use A2billingRestApi.CardSeriaFactory
   use A2billingRestApi.DidgroupFactory
+  use A2billingRestApi.SipBuddyFactory
   use A2billingRestApi.UserFactory
 end
