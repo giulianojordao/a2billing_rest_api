@@ -86,4 +86,22 @@ defmodule A2billingRestApi.Card do
 
     |> validate_required([:username, :useralias, :uipass, :redial, :tag])
   end
+
+  def changeset_with_sip_buddy(struct, params \\ %{}) do
+    struct |> changeset(params) |> put_default_sip_buddy
+  end
+
+  def put_default_sip_buddy(card) do
+    if card.changes |> Map.has_key?(:username) do
+      sip_buddy = Ecto.Changeset.change(%A2billingRestApi.SipBuddy{}, %{
+        name:        card.changes.username,
+        accountcode: card.changes.username,
+        username:    card.changes.username,
+        regexten:    card.changes.username
+      })
+      card |> put_assoc(:sip_buddy_acc, sip_buddy)
+    else
+      card
+    end
+  end
 end

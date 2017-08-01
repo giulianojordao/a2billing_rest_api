@@ -1,13 +1,15 @@
 defmodule A2billingRestApi.CardTest do
   use A2billingRestApi.ModelCase
 
+  import A2billingRestApi.Factory
+
   alias A2billingRestApi.Card
 
   @valid_attrs %{discountdecimal: "some content", email_notification: "some content", invoiceday: 42,
                  city: "some content", expirationdate: %{day: 17, hour: 14, min: 0, month: 4, sec: 0, year: 2010},
                  useralias: "some content", currency: "some content", credit_notification: 42, redial: "some content",
                  activated: "f", tariff: 42, vat: "120.5", fax: "some content", iax_buddy: 42,
-                 email: "some content", simultaccess: 42, company_website: "some content",                 
+                 email: "some content", simultaccess: 42, company_website: "some content",
                  voicemail_permitted: 42, status: 42, loginkey: "some content", traffic_target: "some content",
                  enableexpire: 42, company_name: "some content", lastname: "some content", restriction: 42, serial: 42,
                  zipcode: "some content", creditlimit: 42, country: "RUS", phone: "1232131",
@@ -26,5 +28,19 @@ defmodule A2billingRestApi.CardTest do
   test "changeset with invalid attributes" do
     changeset = Card.changeset(%Card{}, @invalid_attrs)
     refute changeset.valid?
+  end
+
+  test "put default sip_buddy" do
+    card_changeset =  Ecto.Changeset.change(%Card{}, params_for(:card))
+
+    changeset = card_changeset |> Card.put_default_sip_buddy
+    actual = changeset.changes.sip_buddy_acc.data
+
+    assert actual.name == card_changeset.data.username
+    assert actual.accountcode == card_changeset.data.username
+    assert actual.amaflags == "billing"
+    assert actual.canreinvite == "YES"
+    assert actual.context == "a2billing"
+    assert actual.username == card_changeset.data.username
   end
 end

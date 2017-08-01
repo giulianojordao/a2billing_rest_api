@@ -10,7 +10,7 @@ defmodule A2billingRestApi.CardController do
   end
 
   def create(conn, %{"data" => data = %{"type" => "card", "attributes" => _card_params}}) do
-    changeset = Card.changeset(%Card{}, Params.to_attributes(data))
+    changeset = Card.changeset_with_sip_buddy(%Card{}, Params.to_attributes(data))
 
     case Repo.insert(changeset) do
       {:ok, card} ->

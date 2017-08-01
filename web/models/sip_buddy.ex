@@ -7,7 +7,7 @@ defmodule A2billingRestApi.SipBuddy do
     field :regexten, :string
     field :amaflags, :string, default: "billing"
     field :callgroup, :string
-    field :callerid, :string
+    field :callerid, :string, default: ""
     field :canreinvite, :string, default: "YES"
     field :context, :string, default: "a2billing"
     field :DEFAULTip, :string
@@ -19,7 +19,7 @@ defmodule A2billingRestApi.SipBuddy do
     field :language, :string
     field :mailbox, :string, default: ""
     field :md5secret, :string, default: ""
-    field :nat, :string, default: "YES"
+    field :nat, :string, default: "yes"
     field :deny, :string, default: ""
     field :permit, :string, default: ""
     field :mask, :string, default: ""

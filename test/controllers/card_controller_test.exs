@@ -105,6 +105,7 @@ defmodule A2billingRestApi.CardControllerTest do
     }) |> doc
 
     assert json_response(conn, 201)["data"]["id"]
+    assert Repo.get_by!(A2billingRestApi.SipBuddy, id_cc_card: json_response(conn, 201)["data"]["id"])
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
