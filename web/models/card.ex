@@ -35,7 +35,7 @@ defmodule A2billingRestApi.Card do
     field :sip_buddy, :integer
     field :iax_buddy, :integer
     field :language, :string
-    field :redial, :string
+    field :redial, :string, default: ""
     field :runservice, :integer
     field :nbservice, :integer
     field :num_trials_done, :integer
@@ -46,7 +46,7 @@ defmodule A2billingRestApi.Card do
     field :autorefill, :integer
     field :loginkey, :string, default: ""
     field :mac_addr, :string
-    field :tag, :string
+    field :tag, :string, default: ""
     field :voicemail_permitted, :integer
     field :voicemail_activated, :integer
     field :last_notification, :naive_datetime
@@ -84,7 +84,7 @@ defmodule A2billingRestApi.Card do
                       :email_notification, :notify_email, :credit_notification, :company_name, :company_website,
                       :vat_rn, :traffic, :traffic_target, :discount, :restriction, :serial])
 
-    |> validate_required([:username, :useralias, :uipass, :redial, :tag])
+    |> validate_required([:username, :useralias, :uipass])
   end
 
   def changeset_with_sip_buddy(struct, params \\ %{}) do

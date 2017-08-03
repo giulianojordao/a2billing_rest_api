@@ -19,7 +19,7 @@ defmodule A2billingRestApi.Mixfile do
   def application do
     [mod: {A2billingRestApi, []},
      applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :mariaex]]
+                    :phoenix_ecto, :mariaex, :ja_serializer, :comeonin]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,9 +38,9 @@ defmodule A2billingRestApi.Mixfile do
      {:cowboy, "~> 1.0"},
      {:plug, "~>1.3.5", override: true},
 
-     #{:argon2_elixir, "~> 1.2"},
      {:bureaucrat, "~> 0.1.4"},
-    # {:comeonin, "~> 4.0-rc"},
+     {:bcrypt_elixir, "~> 0.12.0"},
+     {:comeonin, "~> 4.0"},
      {:distillery, "~> 1.2", runtime: false},
      {:ex_machina, "~> 2.0", only: :test},
      {:faker, "~> 0.8", only: :test},
@@ -56,8 +56,8 @@ defmodule A2billingRestApi.Mixfile do
   #
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
-    ["ecto.setup": ["ecto.create", "ecto.load", "run priv/repo/seeds.exs"],
+    ["ecto.setup": ["ecto.create", "ecto.load", "ecto.migrate", "run priv/repo/seeds.exs"],
      "ecto.reset": ["ecto.drop", "ecto.setup"],
-     "test": ["ecto.create --quiet", "ecto.load", "test"]]
+     "test": ["ecto.create --quiet", "ecto.load", "ecto.migrate", "test"]]
   end
 end

@@ -37,11 +37,11 @@ config :guardian, Guardian,
   allowed_algos: ["HS512"], # optional
   verify_module: Guardian.JWT,  # optional
   issuer: "A2billingRestApi",
-  ttl: { 3000, :days },
+  ttl: nil,
   allowed_drift: 2000,
   verify_issuer: true, # optional
   secret_key: "Ztkj/PV6lDqRLhEOy/oMkRk+TdnmilLkYwIlN8SOKlDg9wdhFpGdyJEU7mtqFryK",
   serializer: A2billingRestApi.GuardianSerializer
 
 
-  config :mix_docker, image: "maxkonin/a2billing_rest_api"
+config :mix_docker, image: "maxkonin/a2billing_rest_api"
